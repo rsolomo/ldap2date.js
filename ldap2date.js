@@ -33,7 +33,9 @@ var ldap2date = {
     return parseInt(time.substring(12, 14))
   },
   getMilliseconds : function getMilliseconds(time) {
-    return parseInt(time.substring(15, 18))
+    var ms = parseInt(time.substring(15, 18))
+    if (ms) return ms
+    return 0
   },
   parse : function parse(time) {
     var date = new Date()

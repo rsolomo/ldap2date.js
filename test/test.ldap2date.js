@@ -53,6 +53,11 @@ describe('ldap2date', function () {
       var ms = ldap2date.getMilliseconds(time)
       assert.strictEqual(ms, 607)
     })
+
+    it('should return 0 if milliseconds is not present', function() {
+      var ms = ldap2date.getMilliseconds('20130228192706Z')
+      assert.strictEqual(ms, 0)
+    })
   })
 
   describe('parse', function() {
