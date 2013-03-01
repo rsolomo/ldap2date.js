@@ -6,7 +6,10 @@
   "scripts": {
     "test": "mocha -R dot"
   },
-  "repository": "",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/rsolomo/ldap2date.js.git"
+  },
   "keywords": [
     "ldap",
     "date",
