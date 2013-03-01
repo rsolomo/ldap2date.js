@@ -1,0 +1,20 @@
+{
+  "name": "ldap2time",
+  "version": "0.0.1",
+  "description": "Parses LDAP Generalized Time Syntax",
+  "main": "ldap2date.js",
+  "scripts": {
+    "test": "mocha -R dot"
+  },
+  "repository": "",
+  "keywords": [
+    "ldap",
+    "date",
+    "time"
+  ],
+  "author": "Ray Solomon <raybsolomon@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "mocha": "~1.8.1"
+  }
+}
