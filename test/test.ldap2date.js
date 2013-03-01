@@ -64,10 +64,22 @@ describe('ldap2date', function () {
   })
 
   describe('toGeneralizedTime', function() {
-    it('should return a Generalized Time Syntax string', function() {
+    it('should return a Generalized Time string', function() {
       var date = new Date(1362079626607)
       var time = ldap2date.toGeneralizedTime(date)
       assert.equal(time, '20130228192706.607Z')
+    })
+    
+    it('should handle single digit years', function() {
+      var date = new Date(-61941924311001)
+      var time = ldap2date.toGeneralizedTime(date)
+      assert.equal(time, '00070220135448.999Z')
+    })
+
+    it('should not return fraction, if it is 0', function() {
+      var date = new Date(1362079626000)
+      var time = ldap2date.toGeneralizedTime(date)
+      assert.equal(time, '20130228192706Z')
     })
   })
 })

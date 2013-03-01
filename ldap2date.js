@@ -6,6 +6,13 @@ function pad2(num) {
   return '' + num
 }
 
+function pad4(num) {
+  if (num < 10) return '000' + num
+  if (num < 100) return '00' + num
+  if (num < 1000) return '0' + num
+  return '' + num
+}
+
 var ldap2date = {
   getYear : function getYear(time) {
     return parseInt(time.substring(0, 4))
@@ -40,14 +47,16 @@ var ldap2date = {
     return date
   },
   toGeneralizedTime: function toGeneralizedTime(date) {
+    var ms = date.getUTCMilliseconds()
+    var fraction = (ms ? '.' + ms : '')
     return '' +
-      date.getUTCFullYear() +
+      pad4(date.getUTCFullYear()) +
       pad2(date.getUTCMonth() + 1) +
       pad2(date.getUTCDate()) +
       pad2(date.getUTCHours()) +
       pad2(date.getUTCMinutes()) +
-      pad2(date.getUTCSeconds()) + '.' +
-      date.getUTCMilliseconds() + 'Z'
+      pad2(date.getUTCSeconds()) +
+      fraction + 'Z'
   }
 }
 
