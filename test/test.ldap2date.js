@@ -68,6 +68,16 @@ describe('ldap2date', function () {
       var ms = ldap2date.getMilliseconds('20130228192706Z')
       assert.strictEqual(ms, 0)
     })
+
+    it('should handle 2 digit fractions', function() {
+      var ms = ldap2date.getMilliseconds('20130228192706.12Z')
+      assert.strictEqual(ms, 120)
+    })
+
+    it('should handle 1 digit fractions', function() {
+      var ms = ldap2date.getMilliseconds('20130228192706.8Z')
+      assert.strictEqual(ms, 800)
+    })
   })
 
   describe('parse', function() {

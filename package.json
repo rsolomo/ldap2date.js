@@ -1,8 +1,8 @@
 {
   "name": "ldap2date",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Parses LDAP Generalized Time Syntax",
-  "main": "ldap2date.js",
+  "main": "./ldap2date.js",
   "scripts": {
     "test": "mocha -R dot"
   },
