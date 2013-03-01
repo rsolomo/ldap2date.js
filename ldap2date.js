@@ -27,10 +27,14 @@ var ldap2date = {
     return parseInt(time.substring(8, 10))
   },
   getMinutes : function getMinutes(time) {
-    return parseInt(time.substring(10, 12))
+    var minutes = parseInt(time.substring(10, 12))
+    if (minutes) return minutes
+    return 0
   },
   getSeconds : function getSeconds(time) {
-    return parseInt(time.substring(12, 14))
+    var seconds = parseInt(time.substring(12, 14))
+    if (seconds) return seconds
+    return 0
   },
   getMilliseconds : function getMilliseconds(time) {
     var ms = parseInt(time.substring(15, 18))

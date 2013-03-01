@@ -39,12 +39,22 @@ describe('ldap2date', function () {
       var minutes = ldap2date.getMinutes(time)
       assert.strictEqual(minutes, 27)
     })
+
+    it('should return 0 if minutes are not present', function() {
+      var minutes = ldap2date.getMinutes('2013022819.607Z')
+      assert.strictEqual(minutes, 0)
+    })
   })
 
   describe('getSeconds', function() {
     it('should parse the hour', function() {
       var seconds = ldap2date.getSeconds(time)
       assert.strictEqual(seconds, 6)
+    })
+
+    it('should return 0 if seconds are not present', function() {
+      var seconds = ldap2date.getSeconds('201302281927.607Z')
+      assert.strictEqual(seconds, 0)
     })
   })
 
@@ -54,7 +64,7 @@ describe('ldap2date', function () {
       assert.strictEqual(ms, 607)
     })
 
-    it('should return 0 if milliseconds is not present', function() {
+    it('should return 0 if milliseconds are not present', function() {
       var ms = ldap2date.getMilliseconds('20130228192706Z')
       assert.strictEqual(ms, 0)
     })
