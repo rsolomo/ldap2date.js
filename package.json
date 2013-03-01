@@ -1,5 +1,5 @@
 {
-  "name": "ldap2time",
+  "name": "ldap2date",
   "version": "0.0.1",
   "description": "Parses LDAP Generalized Time Syntax",
   "main": "ldap2date.js",
