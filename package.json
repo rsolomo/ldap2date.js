@@ -1,6 +1,6 @@
 {
   "name": "ldap2date",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Parses LDAP Generalized Time Syntax",
   "main": "ldap2date.js",
   "scripts": {
@@ -18,6 +18,6 @@
   "author": "Ray Solomon <raybsolomon@gmail.com>",
   "license": "MIT",
   "devDependencies": {
-    "mocha": "1.*"
+    "mocha": "1.x"
   }
 }
