@@ -37,10 +37,19 @@ var ldap2date = {
     return 0
   },
   getMilliseconds : function getMilliseconds(time) {
-    var fraction = '0' + '.' + time.substring(15, 18)
+    var startIdx
+    if (time.indexOf('.') !== -1) {
+      startIdx = time.indexOf('.') + 1
+    } else if (time.indexOf(',') !== -1) {
+      startIdx = time.indexOf(',') + 1
+    } else {
+      return 0
+    }
+
+    var stopIdx = time.length - 1
+    var fraction = '0' + '.' + time.substring(startIdx, stopIdx)
     var ms = parseFloat(fraction) * 1000
-    if (ms) return ms
-    return 0
+    return ms
   },
   parse : function parse(time) {
     var date = new Date()

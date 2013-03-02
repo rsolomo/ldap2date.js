@@ -64,6 +64,16 @@ describe('ldap2date', function () {
       assert.strictEqual(ms, 607)
     })
 
+    it('should parse ms even if minutes/seconds are missing', function() {
+      var ms = ldap2date.getMilliseconds('2013022819.648Z')
+      assert.strictEqual(ms, 648)
+    })
+
+    it('should work with commas', function() {
+      var ms = ldap2date.getMilliseconds('2013022819,648Z')
+      assert.strictEqual(ms, 648)
+    })
+
     it('should return 0 if milliseconds are not present', function() {
       var ms = ldap2date.getMilliseconds('20130228192706Z')
       assert.strictEqual(ms, 0)
@@ -85,6 +95,11 @@ describe('ldap2date', function () {
       var date = ldap2date.parse(time)
       assert.ok(date instanceof Date)
       assert.equal(date.valueOf(), 1362079626607)
+    })
+
+    it('should parse Generalized Time string that only has required fields', function() {
+      var date = ldap2date.parse('2013022819Z')
+      assert.equal(date.valueOf(), 1362078000000)
     })
   })
 
