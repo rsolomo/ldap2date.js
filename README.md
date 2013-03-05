@@ -13,10 +13,12 @@ If so, the methods below may help you. Currently, only 'Z', style strings are su
 ### ldap2date.parse(time)
 
 Returns a new Date() object
-- `time` - String - A LDAP Generalized-Time string
+- `time` - A LDAP Generalized-Time string
+
+An error will be thrown if the time string cannot be parsed into a valid Date object.
 
 ---
 ### ldap2date.toGeneralizedTime(date)
 
 Returns a string in GeneralizedTime syntax
-- `date` - Date - A date object
+- `date` - A date object
