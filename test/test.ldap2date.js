@@ -101,6 +101,14 @@ describe('ldap2date', function () {
       var date = ldap2date.parse('2013022819Z')
       assert.equal(date.valueOf(), 1362078000000)
     })
+
+    it('should throw an Error if the parsed date is invalid', function() {
+      assert.throws(
+        function() {
+          ldap2date.parse('A2013022819Z')
+        }, Error
+      )
+    })
   })
 
   describe('toGeneralizedTime', function() {
