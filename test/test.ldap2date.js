@@ -95,18 +95,22 @@ describe('ldap2date', function () {
       var ms = ldap2date.getTimeZone('20130228192706.8+531')
       assert.equal(ms, 19860000)
     })
+
     it('should return ms representation of - timezone', function() {
       var ms = ldap2date.getTimeZone('20130228192706.8-531')
       assert.equal(ms, -19860000)
     })
+
     it('should return 0 for \'Z\' timezone', function() {
       var ms = ldap2date.getTimeZone('20130228192706.8Z')
       assert.equal(ms, 0)
     })
+
     it('minutes should be optional', function() {
       var ms = ldap2date.getTimeZone('20130228192706.8+5')
       assert.equal(ms, 18000000)
     })
+
     it('should throw an Error if the timezone is not present', function() {
       assert.throws(
         function() {
