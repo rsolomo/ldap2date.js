@@ -132,6 +132,11 @@ describe('ldap2date', function () {
       var date = ldap2date.parse('2013022819Z')
       assert.equal(date.valueOf(), 1362078000000)
     })
+
+    it('should parse timezones', function() {
+      var date = ldap2date.parse('20130228192706.607Z+500')
+      assert.equal(date.valueOf(), 1362097626607)
+    })
   })
 
   describe('toGeneralizedTime', function() {

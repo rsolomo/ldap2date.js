@@ -6,7 +6,7 @@ Do you have a string in [RFC 4517](http://www.ietf.org/rfc/rfc4517.txt) Generali
 
 Or perhaps you need some Generalized Time, but have a Date instead.
 
-If so, the methods below may help you. Currently, only 'Z', style strings are supported.
+If so, the methods below may help you.
 
 ## Usage
 

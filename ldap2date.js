@@ -73,13 +73,14 @@ var ldap2date = {
   },
   parse : function parse(time) {
     var date = new Date()
+    var ms = this.getMilliseconds(time) + this.getTimeZone(time)
     date.setUTCFullYear(this.getYear(time))
     date.setUTCMonth(this.getMonth(time))
     date.setUTCDate(this.getDay(time))
     date.setUTCHours(this.getHours(time))
     date.setUTCMinutes(this.getMinutes(time))
     date.setUTCSeconds(this.getSeconds(time))
-    date.setUTCMilliseconds(this.getMilliseconds(time))
+    date.setUTCMilliseconds(ms)
     return date
   },
   toGeneralizedTime: function toGeneralizedTime(date) {
