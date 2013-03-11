@@ -51,6 +51,26 @@ var ldap2date = {
     var ms = parseFloat(fraction) * 1000
     return ms
   },
+  getTimeZone : function getTimeZone(time) {
+    var length = time.length
+    if (time.charAt(length - 1 ) === 'Z') return 0
+    if (time.indexOf('+') !== -1) {
+      var symbolIdx = time.indexOf('+')
+    } else if (time.indexOf('-') !== -1) {
+      var symbolIdx = time.indexOf('-')
+    } else {
+      throw new Error('Invalid timezone')
+    }
+    
+    var minutes = time.substring(symbolIdx + 2)
+    var hours = time.substring(symbolIdx + 1, symbolIdx + 2)
+    var one = (time.charAt(symbolIdx) === '+') ? 1 : -1
+
+    var intHr = one * parseInt(hours) * 60 * 60 * 1000
+    var intMin = one * parseInt(minutes) * 60 * 1000
+    var ms = minutes ? intHr + intMin : intHr
+    return ms
+  },
   parse : function parse(time) {
     var date = new Date()
     date.setUTCFullYear(this.getYear(time))
