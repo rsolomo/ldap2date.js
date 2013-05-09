@@ -103,6 +103,8 @@ var ldap2date = {
 
 if (typeof exports === 'object') {
   module.exports = ldap2date
+} else if (typeof define === "function" && define.amd) {
+  define(ldap2date)
 } else {
   window.ldap2date = ldap2date
 }
