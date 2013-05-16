@@ -14,29 +14,29 @@ function pad4(num) {
 }
 
 var ldap2date = {
-  getYear : function getYear(time) {
+  getYear : function(time) {
     return parseInt(time.substring(0, 4))
   },
-  getMonth : function getMonth(time) {
+  getMonth : function(time) {
     return parseInt(time.substring(4, 6)) - 1
   },
-  getDay : function getDay(time) {
+  getDay : function(time) {
     return parseInt(time.substring(6, 8))
   },
-  getHours : function getHours(time) {
+  getHours : function(time) {
     return parseInt(time.substring(8, 10))
   },
-  getMinutes : function getMinutes(time) {
+  getMinutes : function(time) {
     var minutes = parseInt(time.substring(10, 12))
     if (minutes) return minutes
     return 0
   },
-  getSeconds : function getSeconds(time) {
+  getSeconds : function(time) {
     var seconds = parseInt(time.substring(12, 14))
     if (seconds) return seconds
     return 0
   },
-  getMilliseconds : function getMilliseconds(time) {
+  getMilliseconds : function(time) {
     var startIdx
     if (time.indexOf('.') !== -1) {
       startIdx = time.indexOf('.') + 1
@@ -51,7 +51,7 @@ var ldap2date = {
     var ms = parseFloat(fraction) * 1000
     return ms
   },
-  getTimeZone : function getTimeZone(time) {
+  getTimeZone : function(time) {
     var length = time.length
     if (time.charAt(length - 1 ) === 'Z') return 0
     if (time.indexOf('+') !== -1) {
@@ -71,7 +71,7 @@ var ldap2date = {
     var ms = minutes ? intHr + intMin : intHr
     return ms
   },
-  parse : function parse(time) {
+  parse : function(time) {
     var date = new Date()
     var ms = this.getMilliseconds(time) + this.getTimeZone(time)
     date.setUTCFullYear(this.getYear(time))
@@ -86,7 +86,7 @@ var ldap2date = {
     if (!date.valueOf()) return null
     return date
   },
-  toGeneralizedTime: function toGeneralizedTime(date) {
+  toGeneralizedTime: function(date) {
     var ms = date.getUTCMilliseconds()
     var fraction = (ms ? '.' + ms : '')
     return '' +
