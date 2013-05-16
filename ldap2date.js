@@ -83,8 +83,7 @@ var ldap2date = {
     date.setUTCMilliseconds(ms)
 
     var msg = date.toString()
-    if (msg === 'Invalid Date') throw new Error(msg)
-
+    if (!date.valueOf()) return null
     return date
   },
   toGeneralizedTime: function toGeneralizedTime(date) {

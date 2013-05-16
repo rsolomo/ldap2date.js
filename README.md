@@ -15,7 +15,7 @@ If so, the methods below may help you.
 Returns a new Date() object
 - `time` - A LDAP Generalized-Time string
 
-An error will be thrown if the time string cannot be parsed into a valid Date object.
+`null` will be returned if the time string cannot be parsed into a valid Date object.
 
 ---
 ### ldap2date.toGeneralizedTime(date)
