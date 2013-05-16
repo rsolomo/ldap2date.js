@@ -59,7 +59,7 @@ var ldap2date = {
     } else if (time.indexOf('-') !== -1) {
       var symbolIdx = time.indexOf('-')
     } else {
-      throw new Error('Invalid timezone')
+      return null
     }
     
     var minutes = time.substring(symbolIdx + 2)

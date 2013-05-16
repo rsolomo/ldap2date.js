@@ -111,13 +111,17 @@ describe('ldap2date', function () {
       assert.equal(ms, 18000000)
     })
 
-    it('should throw an Error if the timezone is not present', function() {
-      assert.throws(
+    it('should not throw an Error if the timezone is not present', function() {
+      assert.doesNotThrow(
         function() {
           ldap2date.getTimeZone('20130228192706.85')
-        },
-        /timezone/i
+        }
       )
+    })
+
+    it('should return null if the timezone is not present', function() {
+      var ms = ldap2date.getTimeZone('20130228192706.85')
+      assert.strictEqual(ms, null)
     })
   })
 
