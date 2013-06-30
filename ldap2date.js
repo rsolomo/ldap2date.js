@@ -72,21 +72,20 @@ var ldap2date = {
     return ms
   },
   parse : function(time) {
-    var date = new Date()
-    var ms = this.getMilliseconds(time) + this.getTimeZone(time)
-    date.setUTCFullYear(this.getYear(time))
-    date.setUTCMonth(this.getMonth(time))
-    date.setUTCDate(this.getDay(time))
-    date.setUTCHours(this.getHours(time))
-    date.setUTCMinutes(this.getMinutes(time))
-    date.setUTCSeconds(this.getSeconds(time))
-    date.setUTCMilliseconds(ms)
-
-    var msg = date.toString()
+    var ms = Date.UTC(
+      this.getYear(time),
+      this.getMonth(time),
+      this.getDay(time),
+      this.getHours(time),
+      this.getMinutes(time),
+      this.getSeconds(time),
+      this.getMilliseconds(time) + this.getTimeZone(time)
+    )
+    var date = new Date(ms)
     if (!date.valueOf()) return null
     return date
   },
-  toGeneralizedTime: function(date) {
+  toGeneralizedTime : function(date) {
     var ms = date.getUTCMilliseconds()
     var fraction = (ms ? '.' + ms : '')
     return '' +
@@ -102,7 +101,7 @@ var ldap2date = {
 
 if (typeof exports === 'object') {
   module.exports = ldap2date
-} else if (typeof define === "function" && define.amd) {
+} else if (typeof define === 'function' && define.amd) {
   define(ldap2date)
 } else {
   window.ldap2date = ldap2date

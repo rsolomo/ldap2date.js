@@ -28,14 +28,14 @@ describe('ldap2date', function () {
   })
 
   describe('getHours', function() {
-    it('should parse the hour', function() {
+    it('should parse the hours', function() {
       var hour = ldap2date.getHours(time)
       assert.strictEqual(hour, 19)
     })
   })
   
   describe('getMinutes', function() {
-    it('should parse the hour', function() {
+    it('should parse the minutes', function() {
       var minutes = ldap2date.getMinutes(time)
       assert.strictEqual(minutes, 27)
     })
@@ -47,7 +47,7 @@ describe('ldap2date', function () {
   })
 
   describe('getSeconds', function() {
-    it('should parse the hour', function() {
+    it('should parse the seconds', function() {
       var seconds = ldap2date.getSeconds(time)
       assert.strictEqual(seconds, 6)
     })
