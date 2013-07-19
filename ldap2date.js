@@ -15,24 +15,24 @@ function pad4(num) {
 
 var ldap2date = {
   getYear : function(time) {
-    return parseInt(time.substring(0, 4))
+    return parseInt(time.substring(0, 4), 10)
   },
   getMonth : function(time) {
-    return parseInt(time.substring(4, 6)) - 1
+    return parseInt(time.substring(4, 6), 10) - 1
   },
   getDay : function(time) {
-    return parseInt(time.substring(6, 8))
+    return parseInt(time.substring(6, 8), 10)
   },
   getHours : function(time) {
-    return parseInt(time.substring(8, 10))
+    return parseInt(time.substring(8, 10), 10)
   },
   getMinutes : function(time) {
-    var minutes = parseInt(time.substring(10, 12))
+    var minutes = parseInt(time.substring(10, 12), 10)
     if (minutes) return minutes
     return 0
   },
   getSeconds : function(time) {
-    var seconds = parseInt(time.substring(12, 14))
+    var seconds = parseInt(time.substring(12, 14), 10)
     if (seconds) return seconds
     return 0
   },
@@ -53,11 +53,12 @@ var ldap2date = {
   },
   getTimeZone : function(time) {
     var length = time.length
+    var symbolIdx
     if (time.charAt(length - 1 ) === 'Z') return 0
     if (time.indexOf('+') !== -1) {
-      var symbolIdx = time.indexOf('+')
+      symbolIdx = time.indexOf('+')
     } else if (time.indexOf('-') !== -1) {
-      var symbolIdx = time.indexOf('-')
+      symbolIdx = time.indexOf('-')
     } else {
       return null
     }
@@ -66,8 +67,8 @@ var ldap2date = {
     var hours = time.substring(symbolIdx + 1, symbolIdx + 2)
     var one = (time.charAt(symbolIdx) === '+') ? 1 : -1
 
-    var intHr = one * parseInt(hours) * 60 * 60 * 1000
-    var intMin = one * parseInt(minutes) * 60 * 1000
+    var intHr = one * parseInt(hours, 10) * 60 * 60 * 1000
+    var intMin = one * parseInt(minutes, 10) * 60 * 1000
     var ms = minutes ? intHr + intMin : intHr
     return ms
   },
