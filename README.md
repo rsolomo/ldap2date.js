@@ -2,11 +2,9 @@
 
 # ldap2date.js
 
-Do you have a string in [RFC 4517](http://www.ietf.org/rfc/rfc4517.txt) Generalized Time syntax, when you really just want a Date?
+Creates DateTime objects from [RFC 4517](http://www.ietf.org/rfc/rfc4517.txt) Generalized Time strings.
 
-Or perhaps you need some Generalized Time, but have a Date instead.
-
-If so, the functions below may help you.
+Conversion from DateTime to GeneralizedTime formatted strings is supported as well.
 
 ## Usage
 
