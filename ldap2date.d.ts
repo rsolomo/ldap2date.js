@@ -7,4 +7,4 @@ export function getHours(time: string): number;
 export function getMinutes(time: string): number;
 export function getSeconds(time: string): number;
 export function getMilliseconds(time: string): number;
-export function getTimeZone(time: string): number;
+export function getTimeZone(time: string): number | null;
