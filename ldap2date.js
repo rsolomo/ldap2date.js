@@ -60,9 +60,9 @@ var ldap2date = {
     } else if (time.indexOf('-') !== -1) {
       symbolIdx = time.indexOf('-')
     } else {
-      return null
+      return NaN
     }
-    
+
     var minutes = time.substring(symbolIdx + 2)
     var hours = time.substring(symbolIdx + 1, symbolIdx + 2)
     var one = (time.charAt(symbolIdx) === '+') ? 1 : -1

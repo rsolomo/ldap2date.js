@@ -119,9 +119,9 @@ describe('ldap2date', function () {
       )
     })
 
-    it('should return null if the timezone is not present', function() {
+    it('should return NaN if the timezone is not present', function() {
       var ms = ldap2date.getTimeZone('20130228192706.85')
-      assert.strictEqual(ms, null)
+      assert.ok(Number.isNaN(ms))
     })
   })
 
