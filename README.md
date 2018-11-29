@@ -2,7 +2,7 @@
 
 # ldap2date.js
 
-Creates DateTime objects from [RFC 4517](http://www.ietf.org/rfc/rfc4517.txt) Generalized Time strings.
+Creates DateTime objects from [RFC 4517](https://tools.ietf.org/html/rfc4517) Generalized Time strings.
 
 Conversion from DateTime to GeneralizedTime formatted strings is supported as well.
 
